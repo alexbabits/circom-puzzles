@@ -1,9 +1,11 @@
-## Hi
-* Contains educational comments for most problems. All solutions pass all tests.
+## Hello
+* Repo contains educational comments describing solution and syntax for most problems. All solutions pass all tests.
 * Note: Some tests were old/off so I changed them where necessary to make them work or more comprehensive.
 * All solutions are done besides Suduko and Sujiko, didn't feel like wasting time on them.
 * For setup/installs, refer to the rareskills repo: https://github.com/RareSkills/zero-knowledge-puzzles
-* Run Tests: `yarn test ./test/<TestName>.js`
+* This is more so just example solutions that pass the tests (don't use in prod, bugs exist)
+* Run Tests in their repo: `yarn test ./test/<TestName>.js`
+* BONUS ROUND: RareSkills X circom bug/puzzle tweets now also included with spoiler solutions
 
 ## References
 * Problems: https://github.com/RareSkills/zero-knowledge-puzzles
