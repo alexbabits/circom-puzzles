@@ -5,6 +5,11 @@ pragma circom 2.1.4;
 
 include "../node_modules/circomlib/circuits/bitify.circom";
 
+// (LMAO I made it way more complicated than it needed to be)
+// Simple solution is shown below this one
+// From: https://github.com/socathie/circomlib-matrix/blob/d41bae31115fed35aea9294d9dbf55354b8bbc5f/circuits/power.circom#L1-#L19
+
+
 /*
 // `&` returns 1 when both bits are 1, else 0. With `x & 1`, the 1 is LSB representing 0001.
 // `>>` shifts bits to the right. For example, 0011 >> 0 = 0011. 0011 >> 1 = 0001. 0011 >> 2 = 0000.
@@ -85,3 +90,22 @@ component main = Pow();
 
 // Copy paste this input exactly as-is into zkREPL and run to see correct result.
 /* INPUT = {"a": ["3", "7"]} */
+
+
+// THE SIMPLE SOLUTION:
+template power (p) {
+   signal input a;
+   signal output out;
+
+   assert(p > 0);
+
+   signal prod[p];
+
+   prod[0] <== a;
+    
+   for (var i=1; i < p; i++) {
+      prod[i] <== prod[i-1] * a;
+   }
+
+   out <== prod[p-1];
+}
